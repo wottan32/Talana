@@ -1,0 +1,16 @@
+{% load table_tags %}
+
+<table>
+    <tr>
+        {% for col in cols %}
+        <th>{{ col.verbose_name }}</th>
+        {% endfor %}
+    </tr>
+    {% for row in rows %}
+    <tr>
+        {% for col in cols %}
+        <td>{{ row|value_from_model:col.name }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
